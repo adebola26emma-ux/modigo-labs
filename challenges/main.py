@@ -1,19 +1,31 @@
-# No starter code provided — write the full program yourself.
-#
-# Requirements recap:
-secret_number = 7 #(store it in a variable)
-# - Prompt must be exactly: "Guess the number: "
-# - If guess > secret_number: "Too high!"
-# - If guess < secret_number: "Too low!"
-# - If guess == secret_number: "Correct! You guessed the number." then stop
-# - Must use a while loop, no for loop, no functions
-
-while True:
-    guess = int(input("Guess the number: "))
-    if guess > secret_number:
-        print("Too high!")
-    elif guess < secret_number:
-        print("Too low!")
-    else:
-        print("Correct! You guessed the number.")
-        break
+correct_username = "admin"
+correct_password = "1234"
+username_access = False
+password_access = False
+attempts = 0
+max_attempts = 4
+while attempts < max_attempts:
+    if not username_access:
+        username = input("Enter username: ")
+        attempts += 1
+        if username == correct_username:
+            username_access = True
+            attempts = 0
+        else:
+            if attempts == max_attempts:
+                print("Account locked.")
+                break
+            else:
+                print("Incorrect username. Try again.")
+    elif not password_access:
+        password = input("Enter password: ")
+        attempts += 1
+        if password == correct_password:
+            print("Login successful!")
+            break
+        else:
+            if attempts == max_attempts:
+                print("Account locked.")
+                break
+            else:
+                print("Incorrect password. Try again.")
