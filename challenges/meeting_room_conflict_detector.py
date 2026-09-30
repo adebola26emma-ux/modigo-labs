@@ -1,6 +1,5 @@
 def has_conflict(meetings):
     # TODO: return True if any two meetings overlap in time, False otherwise
-    ranges = []
     for i in range(len(meetings)):
         for j in range(i+1, len(meetings)):
             if meetings[j][0] < meetings[i][1]:
